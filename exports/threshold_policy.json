@@ -1,0 +1,6 @@
+{
+  "threshold_profit_opt": 0.05,
+  "threshold_f1_opt": 0.34,
+  "default_policy": "profit_opt",
+  "generated_at": "2026-03-09T09:40:56.234124"
+}
