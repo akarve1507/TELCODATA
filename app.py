@@ -9,7 +9,12 @@ st.set_page_config(page_title="IBM Telco Churn Decision App", page_icon="📉", 
 REPO_DIR = Path(__file__).resolve().parent
 EXPORTS_DIR = REPO_DIR / "exports"
 IMAGES_DIR = REPO_DIR / "images"
-
+def require_columns(df, cols, df_name="dataframe"):
+    missing = [c for c in cols if c not in df.columns]
+    if missing:
+        st.error(f"{df_name} is missing required columns: {missing}")
+        st.write("Available columns:", list(df.columns))
+        st.stop()
 @st.cache_data
 def load_csv(path: Path) -> pd.DataFrame:
     return pd.read_csv(path)
